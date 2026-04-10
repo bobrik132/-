@@ -1,0 +1,63 @@
+﻿<Window x:Class="РоссийскоеМолоко.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="АО ГК Российское молоко"
+        Height="500"
+        Width="900">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45.917"/>
+            <ColumnDefinition Width="254.083"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0,0,10,0" Grid.ColumnSpan="2">
+            <TextBlock Text="Учет поставок"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Поставщик"/>
+            <ComboBox x:Name="cbПоставщик"
+                      Height="30"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="Название"
+                      SelectedValuePath="КодПоставщика"/>
+
+            <TextBlock Text="Продукция"/>
+            <ComboBox x:Name="cbПродукция"
+                      Height="30"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="Наименование"
+                      SelectedValuePath="КодПродукции"/>
+
+            <TextBlock Text="Дата поставки"/>
+            <DatePicker x:Name="dpДатаПоставки"
+                        Margin="0,5,0,10"/>
+
+            <TextBlock Text="Количество"/>
+            <TextBox x:Name="txtКоличество"
+                     Height="30"
+                     Margin="0,5,0,20"/>
+
+            <Button Content="Добавить поставку"
+                    Height="35"
+                    Click="ДобавитьПоставку_Click"/>
+
+            <Button Content="Обновить таблицу"
+                    Height="35"
+                    Margin="0,10,0,0"
+                    Click="Обновить_Click"/>
+
+            <Button Content="Удалить"
+                    Height="35"
+                    Margin="0,10,0,0"
+                    Click="Очистить_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgПоставки"
+                  Grid.Column="2"
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"/>
+    </Grid>
+</Window>
